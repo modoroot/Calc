@@ -16,13 +16,13 @@ import java.text.DecimalFormat;
 
 
 /**
- * Clase main de Calc donde se contienen los métodos que harán funcionar
+ * Clase main de la app Calc donde se contienen los métodos que harán funcionar
  * las operaciones de suma, resta, multiplicación, división
  * @author amna
  * @version 1.0
  */
 public class MainActivity extends AppCompatActivity {
-
+    //Declaración variables
     EditText et1;
     EditText et2;
     TextView tv1;
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        //Asignación de variables a los componentes de la app
         et1 = findViewById(R.id.numUno);
         et2 = findViewById(R.id.numDos);
         tv1 = findViewById(R.id.result);
@@ -46,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
         et1.addTextChangedListener(textWatcher);
         et2.addTextChangedListener(textWatcher);
     }
+
+    /**
+     * Interfaz que se compone de 3 métodos diferentes los cuales
+     * realizan ciertas acciones según se cambie el texto, antes, durante o después
+     * En mi caso, sólo usé el método onTextChanged para habilitar o deshabilitar
+     * los botones si hay al menos un número en ambos TextView
+     * Disclaimer: para que funcione correctamente, hay que modificar el estado
+     * por defecto de los botones a false. Así, al iniciar la aplicación, se encontrarán
+     * desactivados
+     */
     private TextWatcher textWatcher = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -79,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Hacemos la suma
         double suma=n1+n2;
+        //Define el formato de los decimales hasta 3
         DecimalFormat df = new DecimalFormat ("#.000");
         String sumFormat = df.format(suma);
         // Establecemos el resultado en el TextView
@@ -97,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Hacemos la resta
         double resta=n1-n2;
+        //Define el formato de los decimales hasta 3
         DecimalFormat df = new DecimalFormat ("#.000");
         String restaFormat = df.format(resta);
         // Establecemos el resultado en el TextView
@@ -114,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Hacemos la multiplicación
         double multiplicar=n1*n2;
+        //Define el formato de los decimales hasta 3
         DecimalFormat df = new DecimalFormat ("#.000");
         String multiFormat = df.format(multiplicar);
         // Establecemos el resultado en el TextView
@@ -121,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Método que controla las divisiones en la Calculadora
+     * Método que controla las divisiones en la Calculadora.
      * @param view
      */
     public void dividir(View view){
@@ -140,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             // Hacemos la división
             double dividir=n1/n2;
+            //Define el formato de los decimales hasta 3
             DecimalFormat df = new DecimalFormat ("#.000");
             String divFormat = df.format(dividir);
             // Establecemos el resultado en el TextView
