@@ -2,14 +2,18 @@ package com.example.sumador;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
+
 import android.app.AlertDialog;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+
 
 /**
  * Clase main de Calc donde se contienen los métodos que harán funcionar
@@ -22,17 +26,47 @@ public class MainActivity extends AppCompatActivity {
     EditText et1;
     EditText et2;
     TextView tv1;
+    Button btnSuma;
+    Button btnResta;
+    Button btnMultiplicacion;
+    Button btnDivision;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        et1=findViewById(R.id.numUno);
-        et2=findViewById(R.id.numDos);
-        tv1=findViewById(R.id.result);
+        et1 = findViewById(R.id.numUno);
+        et2 = findViewById(R.id.numDos);
+        tv1 = findViewById(R.id.result);
+        btnSuma = findViewById(R.id.sumarBt);
+        btnResta = findViewById(R.id.restarBt);
+        btnMultiplicacion = findViewById(R.id.multiBt);
+        btnDivision = findViewById(R.id.divisionBt);
+        et1.addTextChangedListener(textWatcher);
+        et2.addTextChangedListener(textWatcher);
     }
+    private TextWatcher textWatcher = new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                String numUnoInput = et1.getText().toString().trim();
+                String numDosInput = et2.getText().toString().trim();
+                btnSuma.setEnabled(!numUnoInput.isEmpty() && !numDosInput.isEmpty());
+                btnResta.setEnabled(!numUnoInput.isEmpty() && !numDosInput.isEmpty());
+                btnMultiplicacion.setEnabled(!numUnoInput.isEmpty() && !numDosInput.isEmpty());
+                btnDivision.setEnabled(!numUnoInput.isEmpty() && !numDosInput.isEmpty());
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+
+        }
+    };
     /**
      * Método que controla las sumas en la calculadora
      * @param view
@@ -74,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
      * @param view
      */
     public void multiplicar(View view) {
-
         // Obtenemos los números
         double n1=Double.parseDouble(et1.getText().toString());
         double n2=Double.parseDouble(et2.getText().toString());
