@@ -4,16 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="horizontal"
+    tools:context=".MainActivity">
 
 
     <EditText
         android:id="@+id/numUno"
-        android:layout_width="wrap_content"
+        android:layout_width="148dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="Primer número "
         android:inputType="number|numberDecimal"
@@ -23,9 +21,8 @@
 
     <EditText
         android:id="@+id/numDos"
-        android:layout_width="wrap_content"
+        android:layout_width="155dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
         android:ems="10"
         android:hint="Segundo número"
         android:inputType="number|numberDecimal"
@@ -33,12 +30,21 @@
         tools:layout_editor_absoluteX="100dp"
         tools:layout_editor_absoluteY="109dp" />
 
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="-200dp"
+        android:hint="Resultado:"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="163dp"
+        tools:layout_editor_absoluteY="391dp" />
+
     <Button
         android:id="@+id/sumarBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="200dp"
         android:onClick="sumar"
         android:text="Sumar"
         tools:layout_editor_absoluteX="75dp"
@@ -48,7 +54,7 @@
         android:id="@+id/multiBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
+        android:layout_marginTop="200dp"
         android:onClick="multiplicar"
         android:text="Multiplicar"
         tools:layout_editor_absoluteX="232dp"
@@ -58,7 +64,7 @@
         android:id="@+id/restarBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
+        android:layout_marginTop="200dp"
         android:onClick="restar"
         android:text="Restar"
         tools:layout_editor_absoluteX="100dp"
@@ -68,20 +74,10 @@
         android:id="@+id/divisionBt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
+        android:layout_marginTop="200dp"
         android:onClick="dividir"
         android:text="Dividir"
         tools:layout_editor_absoluteX="248dp"
         tools:layout_editor_absoluteY="257dp" />
 
-    <TextView
-        android:id="@+id/result"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="25dp"
-        android:hint="Resultado:"
-        android:textSize="18sp"
-        tools:layout_editor_absoluteX="163dp"
-        tools:layout_editor_absoluteY="391dp" />
 </LinearLayout>
