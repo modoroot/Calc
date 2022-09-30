@@ -17,7 +17,8 @@ import java.text.DecimalFormat;
 
 /**
  * Clase main de la app Calc donde se contienen los métodos que harán funcionar
- * las operaciones de suma, resta, multiplicación, división
+ * las operaciones de suma, resta, multiplicación, división. Además, se controlan
+ * diversos posibles errores
  * @author amna
  * @version 1.0
  */
@@ -66,6 +67,8 @@ public class MainActivity extends AppCompatActivity {
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String numUnoInput = et1.getText().toString().trim();
                 String numDosInput = et2.getText().toString().trim();
+                //Comprueba si hay algún campo de texto vacío. Si sí, los botones
+            //se desactivan
                 btnSuma.setEnabled(!numUnoInput.isEmpty() && !numDosInput.isEmpty());
                 btnResta.setEnabled(!numUnoInput.isEmpty() && !numDosInput.isEmpty());
                 btnMultiplicacion.setEnabled(!numUnoInput.isEmpty() && !numDosInput.isEmpty());
@@ -144,6 +147,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Controlamos si el denominador es 0
         if(n2==0) {
+            //Muestra un diálogo de alerta
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("CUIDAOOOOOOOO");
             builder.setMessage("No dividas entre 0");
@@ -159,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
             // Establecemos el resultado en el TextView
             tv1.setText(""+divFormat);
         }
-        }
-
-
     }
+
+
+}
